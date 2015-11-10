@@ -12,15 +12,16 @@ body {
     display: block;
     width: 100%;
     text-align: center;
-    background: url('http://placehold.it/1900x500') no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+   //background: url('../img/banner.jpg') no-repeat left center;
+    background-color: #1899AF;
 }
 
 .headline {
-    padding: 120px 0;
+    padding: 0 !important;
+}
+
+.headline .img-reponsive {
+    max-width: 100%;
 }
 
 .headline h1 {
