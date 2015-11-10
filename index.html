@@ -110,29 +110,105 @@
         <hr class="featurette-divider">
 
         <!-- Third Featurette -->
-        <div class="featurette" id="contact">
-            <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-            <h2 class="featurette-heading">Inscrições</h2>
-            <p class="lead">As inscrições para a festa estão abertas para voluntários de
-            15 a 35 anos, mas envolvem algumas etapas. É preciso comparecer a um treinamento
-            onde serão explicadas regras para garantir a segurança das crianças e dicas para
-            aproveitar ao máximo o dia da festa. Também é necessária uma contrubuição para
-            custear uma pequena parte da festa.</p>
+        <div id="subscription">
+            <div class="text-center">
+                <h2 class="featurette-heading">Inscreva-se</h2>
+                <p class="lead">As inscrições para a festa estão abertas para voluntários de
+                15 a 35 anos, mas envolvem algumas etapas. É preciso comparecer a um treinamento
+                onde serão explicadas regras para garantir a segurança das crianças e dicas para
+                aproveitar ao máximo o dia da festa. Uma contrubuição para custear uma pequena
+                parte da festa.</p>
+            </div>
 
-            <p class="lead text-center"><a href="#" class="btn btn-lg btn-success">Inscreva-se</a></p>
+            <div class="step1 volunteer">
+                <form>
+                    <h1 ng-bind="volunteer.id"></h1>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Nome</label>
+                            <input class="input-lg form-control" type="text" name="name" ng-model="volunteer.name" />
+                            
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>E-mail</label>
+                            <input class="input-lg form-control" type="text" name="email" ng-model="volunteer.email" />
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>RG</label>
+                            <input class="input-lg form-control" type="text" name="rg" ng-model="volunteer.rg" />
+                            
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Data de nascimento</label>
+                            <input class="input-lg form-control" type="text" name="birthdate" ng-model="volunteer.birthdate" />
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Celular</label>
+                            <input class="input-lg form-control" type="text" name="phone" ng-model="volunteer.phone" />
+                            
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Ocupação</label>
+                            <input class="input-lg form-control" type="text" name="occupation" ng-model="volunteer.occupation" />
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Organização</label>
+                            <input class="input-lg form-control" type="text" name="organization" ng-model="volunteer.organization" />
+                            
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>CEP</label>
+                            <input class="input-lg form-control" type="text" name="cep" ng-model="volunteer.cep" />
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Endereço</label>
+                            <input class="input-lg form-control" type="text" name="address" ng-model="volunteer.address" />
+                            
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Complemento</label>
+                            <input class="input-lg form-control" type="text" name="complement" ng-model="volunteer.complement" />
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Estado</label>
+                            <input class="input-lg form-control" type="text" name="state" ng-model="volunteer.state" />
+                            
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Cidade</label>
+                            <input class="input-lg form-control" type="text" name="city" ng-model="volunteer.city" />
+                            
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-lg btn-info" ng-click="save()">Treinamentos</button>
+                    </div>
+                </form>
+            </div>
+
+
         </div>
 
         <hr class="featurette-divider">
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
+        <div class="">
 
+        </div>
     </div>
     <!-- /.container -->
 
