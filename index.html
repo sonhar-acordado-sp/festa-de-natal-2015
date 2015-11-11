@@ -23,6 +23,13 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
 </head>
 
 <body>
@@ -62,7 +69,6 @@
     <!-- Full Width Image Header -->
     <header class="header-image">
         <div class="headline text-left">
-            <img src="img/banner.jpg" title="Festa" alt="Festa" class="img-reponsive">
             <div class="container sr-only">
                 <h1>Festa de Natal</h1>
                 <h2>Escola de Super Heróis</h2>
@@ -77,7 +83,7 @@
 
         <!-- First Featurette -->
         <div class="featurette" id="about">
-            <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
+            <img class="featurette-image img-circle img-responsive pull-right" src="img/herois.png">
             <h2 class="featurette-heading">A Festa</h2>
             <p class="lead">Um dia especial onde 1300 crianças de 5 a 11 anos de idade,
             de diferentes instituições de São Paulo podem ter tudo que merecem: brincadeiras,
@@ -94,7 +100,7 @@
 
         <!-- Second Featurette -->
         <div class="featurette" id="services">
-            <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
+            <img class="featurette-image img-circle img-responsive pull-left" src="img/logo-grande.png">
             <h2 class="featurette-heading">A ONG</h2>
             <p class="lead">Fundada em 1998 em Monterrey no Méxio, a ONG Sonhar Acordado
             tem como objetivo agregar pessoas dispostas a fazer o bem, criar elos de
@@ -114,106 +120,173 @@
             <div class="text-center">
                 <h2 class="featurette-heading">Inscreva-se</h2>
                 <p class="lead">As inscrições para a festa estão abertas para voluntários de
-                15 a 35 anos, mas envolvem algumas etapas. É preciso comparecer a um treinamento
-                onde serão explicadas regras para garantir a segurança das crianças e dicas para
-                aproveitar ao máximo o dia da festa. Uma contrubuição para custear uma pequena
-                parte da festa.</p>
+                <b class="text-info">15 a 35 anos</b>, mas envolvem algumas etapas. É preciso 
+                comparecer a um treinamento onde serão explicadas regras para garantir a
+                segurança das crianças e dicas para aproveitar ao máximo o dia da festa. Pedimos também uma contribuição de <b class="text-success">R$ 40,00</b> para custear
+                uma pequena parte da festa.</p>
             </div>
+            <div class="step1 volunteer"
+                 ng-controller="SubscriptionInfoCtrl">
 
-            <div class="step1 volunteer">
                 <form>
-                    <h1 ng-bind="volunteer.id"></h1>
                     <div class="row">
-                        <div class="col-sm-6 form-group">
+                        <div class="col-sm-6 form-group" ng-class="{'has-error': errors.name}">
                             <label>Nome</label>
                             <input class="input-lg form-control" type="text" name="name" ng-model="volunteer.name" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.name">{{ error }}</p>
                         </div>
-                        <div class="col-sm-6 form-group">
+                        <div class="col-sm-6 form-group" ng-class="{'has-error': errors.email}">
                             <label>E-mail</label>
                             <input class="input-lg form-control" type="text" name="email" ng-model="volunteer.email" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.email">{{ error }}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6 form-group">
+                        <div class="col-sm-6 form-group" ng-class="{'has-error': errors.rg}">
                             <label>RG</label>
                             <input class="input-lg form-control" type="text" name="rg" ng-model="volunteer.rg" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.rg">{{ error }}</p>
                         </div>
-                        <div class="col-sm-6 form-group">
+                        <div class="col-sm-6 form-group" ng-class="{'has-error': errors.birthdate}">
                             <label>Data de nascimento</label>
                             <input class="input-lg form-control" type="text" name="birthdate" ng-model="volunteer.birthdate" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.birthdate">{{ error }}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6 form-group">
+                        <div class="col-sm-6 form-group" ng-class="{'has-error': errors.phone}">
                             <label>Celular</label>
                             <input class="input-lg form-control" type="text" name="phone" ng-model="volunteer.phone" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.phone">{{ error }}</p>
                         </div>
-                        <div class="col-sm-6 form-group">
+                        <div class="col-sm-6 form-group" ng-class="{'has-error': errors.occupation}">
                             <label>Ocupação</label>
                             <input class="input-lg form-control" type="text" name="occupation" ng-model="volunteer.occupation" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.occupation">{{ error }}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6 form-group">
+                        <div class="col-sm-6 form-group" ng-class="{'has-error': errors.organization}">
                             <label>Organização</label>
                             <input class="input-lg form-control" type="text" name="organization" ng-model="volunteer.organization" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.organization">{{ error }}</p>
                         </div>
-                        <div class="col-sm-6 form-group">
+                        <div class="col-sm-6 form-group" ng-class="{'has-error': errors.cep}">
                             <label>CEP</label>
                             <input class="input-lg form-control" type="text" name="cep" ng-model="volunteer.cep" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.cep">{{ error }}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6 form-group">
+                        <div class="col-sm-6 form-group" ng-class="{'has-error': errors.address}">
                             <label>Endereço</label>
                             <input class="input-lg form-control" type="text" name="address" ng-model="volunteer.address" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.address">{{ error }}</p>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <label>Complemento</label>
+                            <label>Complemento</label ng-class="{'has-error': errors.complement}">
                             <input class="input-lg form-control" type="text" name="complement" ng-model="volunteer.complement" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.complement">{{ error }}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6 form-group">
+                        <div class="col-sm-6 form-group" ng-class="{'has-error': errors.state}">
                             <label>Estado</label>
                             <input class="input-lg form-control" type="text" name="state" ng-model="volunteer.state" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.state">{{ error }}</p>
                         </div>
-                        <div class="col-sm-6 form-group">
+                        <div class="col-sm-6 form-group" ng-class="{'has-error': errors.city}">
                             <label>Cidade</label>
                             <input class="input-lg form-control" type="text" name="city" ng-model="volunteer.city" />
-                            
+                            <p class="text-danger" ng-repeat="error in errors.city">{{ error }}</p>
                         </div>
                     </div>
                     <div class="text-right">
-                        <button class="btn btn-lg btn-info" ng-click="save()">Treinamentos</button>
+                        <button class="btn btn-lg btn-info" ng-click="save()">Escolher treinamento</button>
                     </div>
                 </form>
             </div>
-
-
         </div>
 
         <hr class="featurette-divider">
 
-        <div class="">
+        <div ng-controller="SubscriptionTrainingCtrl" ng-show="volunteer.id">
+                <div class="text-center">
+                    <h2 class="featurette-heading">Treinamentos</h2>
+                </div>
 
+            <div class="step2 training">
+                <div ng-repeat="training in training_list" class="row">
+                    <div class="col-sm-1 col-xs-2">
+                        <input type="radio" ng-value="training.id"
+                               ng-model="subscription.training" />
+                    </div>
+                    <div class="col-sm-11 col-xs-10 row">
+                        <div class="col-sm-3">{{ training.date }}</div>
+                        <div class="col-sm-5">{{ training.local.name }}</div>
+                        <div class="col-sm-4">{{ training.local.address }} - {{ training.local.city }}</div>
+                    </div>
+                </div>
+
+                <div class="text-right">
+                    <button class="btn btn-lg btn-success" ng-click="save()">Contribuir</button>
+                </div>
+            </div>
         </div>
+
+        <hr class="featurette-divider">
+
+        <div ng-controller="SubscriptionPaymentCtrl" ng-show="subscription.id">
+            <div class="text-center">
+                <h2 class="featurette-heading">Contribuição</h2>
+                <p class="lead">Você pode levar sua contribuição em dinheiro no dia do treinamento
+                ou usar o BCash, para fazer sua contribuição agora mesmo via Internet. Caso
+                prefiram BCash, se possível usem o Boleto, que é a opção que menos onera
+                a contribuição.</p>
+            </div>
+
+            <div class="step3 contribution">
+                <hr/>
+                <div class="row" ng-controller="SubscriptionPaymentCtrl">
+                    <div class="col-sm-6 text-center">
+                        <input src="img/icon-cash.png" 
+                               value="Dinheiro" title="Dinheiro" type="image"
+                               ng-click="subscription.payment='cash'; save()" />
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <form accept-charset="ISO-8859-1"
+                              action="{{form_data.endpoint}}"
+                              method="post"
+                              target="_fn_contribution">
+
+                            <input ng-repeat="(name, value) in form_data.fields"
+                                   name="{{ name }}" ng-value="value" type="hidden"/>
+
+                            <input src="{{form_data.image_button}}" type="image"
+                                   ng-click="subscription.payment='eletronic'; save()" />
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="step4 thanks" ng-controller="SubscriptionPaymentCtrl"
+             ng-show="subscription.payment">
+            <div class="text-center">
+                <h2 class="featurette-heading">Obrigado!!</h2>
+                <hr>
+                <p class="lead">Juntos com você levaremos alegria para mais de 1.300 crianças,
+                que estão muito ansiosas esperando por este dia. Vai ser um dia incrível!</p>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
     </div>
     <!-- /.container -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 
 </html>

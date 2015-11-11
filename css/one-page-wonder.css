@@ -12,12 +12,13 @@ body {
     display: block;
     width: 100%;
     text-align: center;
-   //background: url('../img/banner.jpg') no-repeat left center;
+    background: url('../img/banner.jpg') no-repeat bottom left;
+    background-size: cover;
     background-color: #1899AF;
 }
 
 .headline {
-    padding: 0 !important;
+    padding: 170px;
 }
 
 .headline .img-reponsive {
