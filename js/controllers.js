@@ -71,6 +71,9 @@
                 $scope.volunteer.save()
                     .then(function(){
                         pipe.volunteer = $scope.volunteer;
+                        $timeout(function(){
+                            document.location.hash = 'training';
+                        }, 500);
                     })
                     ['catch'](function(response){
                         $scope.errors = response.data;
@@ -79,8 +82,8 @@
         }
     ]);
 
-    app.controller('SubscriptionTrainingCtrl', ['$scope', 'Training', 'Subscription', 'pipe',
-        function($scope, Training, Subscription, pipe) {
+    app.controller('SubscriptionTrainingCtrl', ['$scope', '$timeout', 'Training', 'Subscription', 'pipe',
+        function($scope, $timeout, Training, Subscription, pipe) {
             $scope.pipe = pipe;
 
             $scope.$watch('pipe.volunteer', function(n, o){
@@ -94,26 +97,29 @@
                             $scope.subscription = res[0];
                         }
                     });
+
+                    Training.query(function(list){
+                        $scope.training_list = list;
+                    });
                 } else {
                     $scope.volunteer = null;
                     $scope.subscription = null;
                 }
             });
 
-            Training.query(function(list){
-                $scope.training_list = list;
-            });
-
             $scope.save = function() {
                 $scope.subscription.save().then(function(){
                     pipe.subscription = $scope.subscription;
+                    $timeout(function(){
+                        document.location.hash = 'contribution';
+                    }, 500);
                 });
             };
         }
     ]);
 
-    app.controller('SubscriptionPaymentCtrl', ['$scope', 'PaymentFormData', 'pipe',
-        function($scope, PaymentFormData, pipe) {
+    app.controller('SubscriptionPaymentCtrl', ['$scope', '$timeout', 'PaymentFormData', 'pipe',
+        function($scope, $timeout, PaymentFormData, pipe) {
             $scope.pipe = pipe;
 
             $scope.$watch('pipe.subscription', function(n, o){
@@ -131,6 +137,9 @@
             $scope.save = function() {
                 $scope.subscription.save().then(function(){
                     pipe.subscription = $scope.subscription;
+                    $timeout(function(){
+                        document.location.hash = 'thankyou';
+                    }, 500);
                 });
             };
         }

@@ -23,14 +23,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.min.js"></script>
-
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/services.js"></script>
 </head>
 
 <body>
@@ -208,9 +200,9 @@
             </div>
         </div>
 
-        <hr class="featurette-divider">
 
         <div ng-controller="SubscriptionTrainingCtrl" ng-show="volunteer.id">
+            <hr class="featurette-divider" id="training">
                 <div class="text-center">
                     <h2 class="featurette-heading">Treinamentos</h2>
                 </div>
@@ -234,9 +226,9 @@
             </div>
         </div>
 
-        <hr class="featurette-divider">
 
         <div ng-controller="SubscriptionPaymentCtrl" ng-show="subscription.id">
+            <hr class="featurette-divider" id="contribution">
             <div class="text-center">
                 <h2 class="featurette-heading">Contribuição</h2>
                 <p class="lead">Você pode levar sua contribuição em dinheiro no dia do treinamento
@@ -262,7 +254,7 @@
                             <input ng-repeat="(name, value) in form_data.fields"
                                    name="{{ name }}" ng-value="value" type="hidden"/>
 
-                            <input src="{{form_data.image_button}}" type="image"
+                            <input ng-src="{{form_data.image_button}}" type="image"
                                    ng-click="subscription.payment='eletronic'; save()" />
                         </form>
                     </div>
@@ -271,10 +263,10 @@
             </div>
         </div>
 
-        <hr class="featurette-divider">
 
         <div class="step4 thanks" ng-controller="SubscriptionPaymentCtrl"
              ng-show="subscription.payment">
+            <hr class="featurette-divider" id="thankyou">
             <div class="text-center">
                 <h2 class="featurette-heading">Obrigado!!</h2>
                 <hr>
@@ -357,6 +349,13 @@
 
     </div>
     <!-- /.container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
 </body>
 
 </html>
