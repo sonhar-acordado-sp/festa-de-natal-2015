@@ -3,10 +3,11 @@
 
     app.controller('ContactFormCtrl', [
       '$scope', '$http', function($scope, $http) {
-        $scope.formData = {};
+        $scope.contactFormData = {};
         $scope.submit = function(isValid) {
           if (isValid) {
-            $http.post('http://festasonharacordado.com.br/apiv1/contactemails/', $scope.formData).success(function(data, status) {
+            console.log($scope.contactFormData);
+            $http.post('http://festasonharacordado.com.br/apiv1/contactemails/', $scope.contactFormData).success(function(data, status) {
               window.alert('Obrigado pelo seu email!');
               $('#contactForm')[0].reset();
             });
