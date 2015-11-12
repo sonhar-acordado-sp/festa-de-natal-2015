@@ -41,10 +41,14 @@
   color: #CC181E;
 }
 
-#duvidas label {
-  font-size: 22px;
+.featurette-divider {
+  margin-top: 10px;
 }
 
-#duvidas p {
-  font-size: 18px;
+.featurette h2 {
+  margin-top: 70px;
+}
+
+.duvidas p {
+  font-size: 17px;
 }
