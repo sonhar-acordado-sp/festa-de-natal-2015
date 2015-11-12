@@ -1,3 +1,46 @@
+.main-menu {
+  background: #EEEEEE;
+  border-bottom: 3px solid #ea9a07;
+}
+
+.main-menu .pages-links li a {
+  color: #ea9a07 !important;
+  font-size: 18px;
+  text-shadow: none !important;
+}
+
+.main-menu .pages-links li a:hover {
+  background: #ea9a07 !important;
+  color: #EEEEEE !important;
+}
+
+.main-menu .navbar-brand {
+  padding: 6px;
+  text-align: center;
+}
+
+.main-menu .navbar-brand img {
+  max-height: 100%;
+  display: initial;
+}
+
+.main-menu .social-links a {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.main-menu .social-links a .fa-facebook-official {
+  color: #3A5795;
+}
+
+.main-menu .social-links a .fa-twitter {
+  color: #55ACEE;
+}
+
+.main-menu .social-links a .fa-youtube {
+  color: #CC181E;
+}
+
 #duvidas label {
   font-size: 22px;
 }
