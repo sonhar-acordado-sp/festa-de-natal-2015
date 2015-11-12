@@ -1,6 +1,27 @@
 (function(angular){
     var app = angular.module('sonhar.controllers', []);
 
+    app.controller('ContactFormCtrl', [
+      '$scope', '$http', function($scope, $http) {
+        $scope.formData = {};
+        $scope.submit = function(isValid) {
+          if (isValid) {
+            // This should only run if the post.succeeds. It's only outside of the scope for testing reasons
+            window.alert('Obrigado pelo seu email!');
+            $('#contactForm')[0].reset();
+
+            $http.post('/apiv1/contactemails', $scope.formData).success(function(data, status) {
+              //$('#contactForm')[0].reset();
+              //window.alert('Obrigado pelo seu email!');
+            });
+          }
+          else {
+            window.alert('Precisamos: nome, email, assunto, e uma mensagem');
+          }
+        }
+      }
+    ]);
+
     app.controller('SubscriptionInfoCtrl', [
         '$scope', '$timeout', 'Volunteer', 'Subscription', 'pipe', 'cepcoder',
         function($scope, $timeout, Volunteer, Subscription, pipe, cepcoder){
@@ -8,7 +29,7 @@
             function debounce_watch(callback, timeout) {
                 var timeout_id = null;
                 return function(before, now) {
-                    if(before !== now && now !== '') { 
+                    if(before !== now && now !== '') {
                         if(timeout_id) {
                             $timeout.cancel(timeout_id);
                         }
@@ -34,8 +55,8 @@
 
             $scope.$watch('volunteer.email', debounce_watch(recover_id, 500));
 
- 
-            /** 
+
+            /**
              * Find address
              */
             function populate_address_from_cep() {

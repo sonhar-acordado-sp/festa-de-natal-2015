@@ -120,7 +120,7 @@
             <div class="text-center">
                 <h2 class="featurette-heading">Inscreva-se</h2>
                 <p class="lead">As inscrições para a festa estão abertas para voluntários de
-                <b class="text-info">15 a 35 anos</b>, mas envolvem algumas etapas. É preciso 
+                <b class="text-info">15 a 35 anos</b>, mas envolvem algumas etapas. É preciso
                 comparecer a um treinamento onde serão explicadas regras para garantir a
                 segurança das crianças e dicas para aproveitar ao máximo o dia da festa. Pedimos também uma contribuição de <b class="text-success">R$ 40,00</b> para custear
                 uma pequena parte da festa.</p>
@@ -249,7 +249,7 @@
                 <hr/>
                 <div class="row" ng-controller="SubscriptionPaymentCtrl">
                     <div class="col-sm-6 text-center">
-                        <input src="img/icon-cash.png" 
+                        <input src="img/icon-cash.png"
                                value="Dinheiro" title="Dinheiro" type="image"
                                ng-click="subscription.payment='cash'; save()" />
                     </div>
@@ -284,6 +284,48 @@
         </div>
 
         <hr class="featurette-divider">
+
+        <div class="text-center">
+            <h2 class="featurette-heading">Fale Conosco</h2>
+            <p class="lead">Perguntas? Duvidas? Comentarios? Envia aqui</p>
+        </div>
+
+          <form name="contactForm" id="contactForm" ng-submit="submit(contactForm.$valid)" ng-controller="ContactFormCtrl" novalidate>
+            <div class="row">
+                <div class="col-sm-6 form-group" ng-class="{'has-error': errors.name}">
+                    <label>Nome Completo</label>
+                    <input class="input-lg form-control" type="text" name="name" ng-model="contactFormData.name" required/>
+                    <p class="text-danger" ng-repeat="error in errors.name">{{ error }}</p>
+                </div>
+                <div class="col-sm-6 form-group" ng-class="{'has-error': errors.email}">
+                    <label>E-mail</label>
+                    <input class="input-lg form-control" type="email" name="email" ng-model="contactFormData.email" required/>
+                    <p class="text-danger" ng-repeat="error in errors.email">{{ error }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group" ng-class="{'has-error': errors.rg}">
+                    <label>Telefone</label>
+                    <input class="input-lg form-control" type="text" name="phone" ng-model="contactFormData.phone" />
+                    <p class="text-danger" ng-repeat="error in errors.rg">{{ error }}</p>
+                </div>
+                <div class="col-sm-6 form-group" ng-class="{'has-error': errors.birthdate}">
+                    <label>Assunto</label>
+                    <input class="input-lg form-control" type="text" name="subject" ng-model="contactFormData.subject" required/>
+                    <p class="text-danger" ng-repeat="error in errors.birthdate">{{ error }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 form-group" ng-class="{'has-error': errors.phone}">
+                    <label>Mensagem</label>
+                    <textarea class="input-lg form-control" rows="10" name="message" ng-model="contactFormData.message" required/></textarea>
+                    <p class="text-danger" ng-repeat="error in errors.phone">{{ error }}</p>
+                </div>
+            </div>
+            <div class="text-right">
+                <button class="btn btn-lg btn-info">Enviar</button>
+            </div>
+        </form>
 
     </div>
     <!-- /.container -->
