@@ -6,13 +6,9 @@
         $scope.formData = {};
         $scope.submit = function(isValid) {
           if (isValid) {
-            // This should only run if the post.succeeds. It's only outside of the scope for testing reasons
-            window.alert('Obrigado pelo seu email!');
-            $('#contactForm')[0].reset();
-
-            $http.post('/apiv1/contactemails', $scope.formData).success(function(data, status) {
-              //$('#contactForm')[0].reset();
-              //window.alert('Obrigado pelo seu email!');
+            $http.post('http://festasonharacordado.com.br/apiv1/contactemails/', $scope.formData).success(function(data, status) {
+              window.alert('Obrigado pelo seu email!');
+              $('#contactForm')[0].reset();
             });
           }
           else {
