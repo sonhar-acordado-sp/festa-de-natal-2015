@@ -13,7 +13,7 @@
             });
           }
           else {
-            window.alert('Precisamos: nome, email, assunto, e uma mensagem');
+            window.alert('Precisamos de seu Nome, Email, Assunto e Mensagem');
           }
         }
       }
